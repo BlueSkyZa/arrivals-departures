@@ -4,35 +4,35 @@
   </div>
 
   <div class="tab-list">
-    <div [ngClass]="{'tab-item': true, 'active': board === 'arrival'}" (click)="select('arrival')">Arrivals</div>
-    <div [ngClass]="{'tab-item': true, 'active': board === 'departure'}" (click)="select('departure')">Departures</div>
+    <div [ngClass]="{'tab-item': true, 'active': type === 'arrival'}" (click)="select('arrival')">Arrivals</div>
+    <div [ngClass]="{'tab-item': true, 'active': type === 'departure'}" (click)="select('departure')">Departures</div>
   </div>
 
   <div class="container-fluid">
     <table class="table table-striped">
       <thead>
-      <tr>
-        <th>Airport</th>
-        <th>Airline</th>
-        <th>Flight</th>
-        <th>Scheduled</th>
-        <th>Estimated</th>
-        <th>Status</th>
+        <tr>
+          <th>Airport</th>
+          <th>Airline</th>
+          <th>Flight</th>
+          <th>Scheduled</th>
+          <th>Estimated</th>
+          <th>Status</th>
 
-      </tr>
+        </tr>
 
       </thead>
 
       <tbody>
-      <tr *ngFor="let flight of flight" [class]="flight.status">
-        <td>{{flight.airport}}</td>
-        <td>{{flight.airline}}</td>
-        <td>{{flight.flight}}</td>
-        <td>{{flight.scheduled | date : 'HH:mm'}}</td>
-        <td>{{flight.estimated | date : 'HH:mm'}}</td>
-        <td>{{flight.status}}</td>
+        <tr *ngFor="let flight of flight" [class]="flight.status">
+          <td>{{flight.airport}}</td>
+          <td>{{flight.airline}}</td>
+          <td>{{flight.flight}}</td>
+          <td>{{flight.scheduled | date : 'HH:mm'}}</td>
+          <td>{{flight.estimated | date : 'HH:mm'}}</td>
+          <td>{{flight.status}}</td>
 
-      </tr>
+        </tr>
 
       </tbody>
 

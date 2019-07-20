@@ -17,17 +17,17 @@ interface Flight {
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  private board = 'arrival';
+  private type = 'arrival';
   private flight: Array<Flight> = [];
 
   constructor(private dataService: DataService) {
-    this.flight = dataService.getFlight(this.board);
+    this.flight = dataService.getFlight(this.type);
   }
 
-  private select(board: string) {
-    if (this.board !== board) {
-      this.board = board;
-      this.flight = this.dataService.getFlight(board);
+  private select(type: string) {
+    if (this.type !== type) {
+      this.type = type;
+      this.flight = this.dataService.getFlight(type);
     }
   }
 

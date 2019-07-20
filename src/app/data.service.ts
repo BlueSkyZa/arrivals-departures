@@ -11,11 +11,13 @@ export class DataService {
     departure: null
   };
 
+  // System time which is accelerated
   private _currentTime: moment.Moment = null;
   get currentTime(): moment.Moment {
     return this._currentTime;
   }
 
+  // Data is updated every 5 seconds and the current time advanced 5 minutes
   private interval = null;
   private _running = false;
   get running(): boolean {
@@ -39,9 +41,11 @@ export class DataService {
     }
   }
 
+  // Airport names used to generate data.
   private airport = ['Dublin', 'Amsterdam', 'Bodrum', 'Malaga', 'Inverness', 'Paphos', 'Beziers', 'Nice', 'Limoges', 'Bergerac',
     'Basel', 'Berlin', 'Rome', 'Cologne', 'Edinburgh', 'Isle of Man', 'Glasgow', 'Belfast Intl', 'Paris CDG', 'Geneva', 'Newcastle'];
 
+  // Airline names and codes used to generate data.
   private airline = [{name: 'Aer Lingus', code: 'EI'}, {name: 'Ryanair', code: 'FR'}, {name: 'Klm', code: 'KL'},
     {name: 'Thomascook', code: 'MT'}, {name: 'easyJet', code: 'EZY'}, {name: 'Loganair', code: 'LM'}];
 
@@ -49,6 +53,7 @@ export class DataService {
     this.running = true;
   }
 
+  // Update the flight status
   private updateFlight(type) {
     let newFlights = 0;
 
@@ -149,7 +154,7 @@ export class DataService {
 
     const scheduled = moment();
 
-    // Generate 20 random flights
+    // Generate 15 random flights
     for (let index = 0; index < 15; index++) {
       const random = Math.floor((Math.random() * 10) + 5);
       scheduled.add(random, 'minute');
@@ -160,5 +165,4 @@ export class DataService {
 
     return this.flight[type];
   }
-
 }
