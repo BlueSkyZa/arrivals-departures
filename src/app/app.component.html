@@ -8,36 +8,34 @@
     <div [ngClass]="{'tab-item': true, 'active': type === 'departure'}" (click)="select('departure')">Departures</div>
   </div>
 
-  <div class="container-fluid">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Airport</th>
-          <th>Airline</th>
-          <th>Flight</th>
-          <th>Scheduled</th>
-          <th>Estimated</th>
-          <th>Status</th>
 
-        </tr>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Airport</th>
+        <th>Airline</th>
+        <th>Flight</th>
+        <th>Scheduled</th>
+        <th>Estimated</th>
+        <th>Status</th>
 
-      </thead>
+      </tr>
 
-      <tbody>
-        <tr *ngFor="let flight of flight" [class]="flight.status">
-          <td>{{flight.airport}}</td>
-          <td>{{flight.airline}}</td>
-          <td>{{flight.flight}}</td>
-          <td>{{flight.scheduled | date : 'HH:mm'}}</td>
-          <td>{{flight.estimated | date : 'HH:mm'}}</td>
-          <td>{{flight.status}}</td>
+    </thead>
 
-        </tr>
+    <tbody>
+      <tr *ngFor="let flight of flight" [class]="flight.status">
+        <td>{{flight.airport}}</td>
+        <td>{{flight.airline}}</td>
+        <td>{{flight.flight}}</td>
+        <td>{{flight.scheduled | date : 'HH:mm'}}</td>
+        <td>{{flight.estimated | date : 'HH:mm'}}</td>
+        <td>{{flight.status}}</td>
 
-      </tbody>
+      </tr>
 
-    </table>
+    </tbody>
 
-  </div>
+  </table>
 
 </div>
